@@ -23,6 +23,6 @@ jobs:
    
       - name: upload files to gcs
         run: |
-            gsutil -m rsync -r . gs://${{ secrets.GCP_BUCKET_NAME }}
+            gsutil cp -r . gs://${{ secrets.GCP_BUCKET_NAME }}
 
       
