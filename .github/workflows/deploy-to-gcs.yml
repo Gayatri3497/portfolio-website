@@ -16,17 +16,11 @@ jobs:
         with:
            credentials_json: ${{ secrets.GCP_SA_KEY_JSON}}
 
-      - name: Install dependencies
-        working-directory: ./
-        run: npm install
-      - name: Build website
-        working-directory: ./
-        run: npm run build
-
+     
 
    
       - name: upload files to gcs
         run: |
-            gsutil -m rsync -r ./dist gs://${{ secrets.GCP_BUCKET_NAME }}
+            gsutil -m rsync -r . gs://${{ secrets.GCP_BUCKET_NAME }}
 
       
